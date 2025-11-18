@@ -251,70 +251,74 @@ span {
   color: #0b0c1a;
 }
 
-/* ===== ONE SCREEN FIX ===== */
+/* ===== FULLSCREEN, NO SCROLL ===== */
 html, body {
   height: 100%;
-  overflow: hidden; /* prevents scrolling */
+  overflow: hidden;
 }
 
-/* ACHIEVEMENTS SECTION AS 1 SCREEN */
+/* EDUCATION SECTION */
 .education {
   background-color: transparent;
-  padding: 2rem 1rem;
+  padding: 0.5rem 1rem 0;
   font-family: 'Poppins', sans-serif;
   color: #ccc;
-  max-width: 1100px;
+  max-width: 1000px;
   margin: 0 auto;
-  height: calc(100vh - 90px); /* visible under navbar */
+
+  height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
 }
 
 /* HEADING */
 .education .heading {
-  margin: 0 0 1.2rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
   text-align: center;
-  font-size: 2.2rem;
+  font-size: 1.8rem;    
   font-weight: 700;
   color: #eaeaea;
 }
 
-/* ===== CARD GRID ===== */
+/* ===== GRID ===== */
 .timeline {
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
-  gap: 1.2rem;
-  padding: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.8rem;
+  padding: 0.2rem;
+  align-items: center;
 }
 
 /* ===== CARD ===== */
 .timeline-item {
-  background: rgba(255, 255, 255, 0.03);
-  border: 2px solid #6eeaff;
-  border-radius: 15px;
-  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid #6eeaff;
+  border-radius: 12px;
+  padding: 0.65rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 195px; /* fits all + bigger image */
+  transition: 0.25s;
 }
 
 .timeline-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(110, 234, 255, 0.4);
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(110, 234, 255, 0.4);
 }
 
-/* SQUARE IMAGE */
+/* ===== IMAGE — BIGGER ===== */
 .timeline-icon {
-  width: 120px;
-  height: 120px;
-  border-radius: 12px;
+  width: 82px;
+  height: 82px;
+  border-radius: 10px;
   overflow: hidden;
   border: 2px solid #6eeaff;
-  margin-bottom: 1rem;
+  margin-bottom: 0.45rem;
 }
 
 .timeline-icon img {
@@ -323,37 +327,43 @@ html, body {
   object-fit: cover;
 }
 
-/* CARD TEXT */
+/* ===== TEXT — MORE READABLE ===== */
 .timeline-content {
   text-align: center;
-  color: #e0e6f1;
+  padding: 0 0.3rem;
 }
 
 .timeline-content h3 {
-  font-size: 1.35rem;
+  font-size: 1.1rem;          /* larger title */
   font-weight: 700;
-  color: #58cfff;
-  margin-bottom: 0.4rem;
+  color: #6ed8ff;
+  margin-bottom: 0.25rem;
 }
 
 .timeline-content p {
-  font-size: 1rem;
-  color: #bfc7d1;
-  line-height: 1.3;
+  font-size: 0.85rem;          /* readable */
+  font-weight: 400;
+  color: #d3d9e3;              /* brighter & clearer */
+  line-height: 1.25;
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
   .timeline {
-    grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .timeline-item {
+    height: 210px;
   }
 }
 
 @media (max-width: 600px) {
   .timeline {
-    grid-template-columns: 1fr; /* 1 card per row */
+    grid-template-columns: 1fr;
   }
-  
+  .timeline-item {
+    height: 240px;
+  }
   .timeline-icon {
     width: 110px;
     height: 110px;
